@@ -47,12 +47,3 @@ func DeleteTodo(ID int64) Todo {
 	return todo
 }
 
-func SearchTodo(s string) []Todo {
-	var todos []Todo
-	sql:= "SELECT * FROM todos"
-	fmt.Println(s)
-	sql = fmt.Sprintf("%s WHERE title LIKE '%%%s%%'", sql , s)
-	db.Raw(sql).Scan(&todos)
-	return todos
-}
-
